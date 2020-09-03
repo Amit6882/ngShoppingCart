@@ -14,7 +14,6 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import { FooterComponent } from './navigation/footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductService } from './product/product.service';
-import { CartService } from './cart/cart.service';
 import { CartModule } from './cart/cart.module';
 
 
@@ -37,8 +36,7 @@ import { CartModule } from './cart/cart.module';
     CartModule
   ],
   providers: [
-    ProductService,
-    CartService
+    ProductService
   ],
   bootstrap: [AppComponent],
   entryComponents: []

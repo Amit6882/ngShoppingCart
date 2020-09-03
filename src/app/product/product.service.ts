@@ -6,7 +6,7 @@ export class ProductService{
     
     constructor(){}
 
-    cartProductAdded: SubCategory[] = [];
+    cart: SubCategory[] = [];
 
     private productList: Products[] = [
         {

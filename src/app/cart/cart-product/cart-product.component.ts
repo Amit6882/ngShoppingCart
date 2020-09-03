@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
 import { SubCategory } from 'src/app/product.model';
-import { Observable } from 'rxjs';
 import { ProductService } from 'src/app/product/product.service';
 
 @Component({
@@ -13,31 +11,25 @@ export class CartProductComponent implements OnInit {
 
   products: SubCategory[];
 
-  constructor(private cartService: CartService, private productService: ProductService) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.products = this.cartService.addedProduct.filter(item => item.num > 0);
-    
-    console.log('Cart Component Init!!!', this.cartService.addedProduct);
-    
-    this.cartService.cartProduct$.subscribe(product => {
-      this.products = product;
-      console.log('cart subscribe', this.products);
-      }
-    );
+    this.products = this.productService.cart.filter(item => item.num > 0);
   }
 
   removeAll(){
     this.products = [];
-    this.productService.cartProductAdded = [];
+    this.productService.cart = [];
   }
 
-  add(prod){
-    console.log(prod);
-  }
+  add(prod: SubCategory){
+    prod.num += 1;
+  }  
 
-  remove(prod){
-    console.log(prod);
+  remove(prod: SubCategory){
+    prod.num--;
+    if(prod.num === 0){
+      this.products = this.products.filter(item => item.num > 0);
+    }
   }
-
 }
