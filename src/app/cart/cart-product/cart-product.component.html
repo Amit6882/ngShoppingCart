@@ -4,7 +4,11 @@
 <section>
     <div *ngIf="products.length; else continueShopping">
         <ul *ngFor="let prod of products" fxLayout fxLayoutGap="10px">
-            <li>{{prod.name}} - Price - {{prod.price}} - Quantity - {{prod.num}}</li>
+            <li>
+               <label><strong>Name: </strong> </label> {{prod.name}},
+               <label> <strong>Price: </strong> </label> {{prod.price}},
+               <label><strong>Quantity: </strong> </label> {{prod.num}}
+            </li>
             <button (click)="add(prod)">+</button>
             <button (click)="remove(prod)">-</button>
         </ul>

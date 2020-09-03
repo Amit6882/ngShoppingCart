@@ -1,12 +1,14 @@
 <h1>Selected Category: {{ selectedCategory? selectedCategory: 'All Category'}}</h1>
 
-<div>
-    <ul *ngFor="let item of displayProduct; let i = index">
-            <li fxLayout fxLayoutGap="10px">
-                {{i+1}} - Name: {{item.name}} | Price: {{item.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}}
-                <button (click)="addProductToCart(item)">+</button>
-                <span *ngIf="item.num">Total {{item.num}} in cart</span>
-                <button (click)="removeProductToCart(item)">-</button>
+<section>
+    <ul *ngFor="let item of displayProduct; let i = index" fxLayout fxLayoutGap="10px">
+            <li>
+                {{i+1}} - 
+                <label><strong>Name: </strong> </label> {{item.name}}, 
+                <label> <strong>Price: </strong> </label> {{item.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}}
             </li>
+            <button (click)="addProductToCart(item)">+</button>
+            <span *ngIf="item.num">Total {{item.num}} in cart</span>
+            <button (click)="removeProductToCart(item)">-</button>
     </ul>
-</div>
+</section>
