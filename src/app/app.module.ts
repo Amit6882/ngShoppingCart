@@ -14,7 +14,6 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import { FooterComponent } from './navigation/footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductService } from './product/product.service';
-import { CartModule } from './cart/cart.module';
 
 
 @NgModule({
@@ -32,8 +31,7 @@ import { CartModule } from './cart/cart.module';
     AppRoutingModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    CartModule
+    HttpClientModule
   ],
   providers: [
     ProductService

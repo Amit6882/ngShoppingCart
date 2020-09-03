@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Products, SubCategory } from 'src/app/product.model';
-import Utility from '../../shared/utility';
+import { Utility } from '../../shared/utility';
 
 @Component({
   selector: 'app-product-list',
@@ -23,14 +23,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.productList = this.productService.getproductList();
-
-    if (this.productService.cart.length) {
-      this.productInCart = this.productService.cart;
-    } else {
-      this.productInCart = [];
-    }
-
-    console.log('Product Component Init!!!', this.productInCart);
+    this.productInCart = this.productService.cart.filter(item => item.num > 0);
 
     // subscribe to latest navigation from route params
     this.route.paramMap.subscribe((params: any) => {

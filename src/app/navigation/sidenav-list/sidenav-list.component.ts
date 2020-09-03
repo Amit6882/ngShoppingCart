@@ -4,7 +4,7 @@ import {
   Input
 } from '@angular/core';
 import { Products } from 'src/app/product.model';
-import Utility from '../../shared/utility';
+import { Utility } from '../../shared/utility';
 
 @Component({
   selector: 'app-sidenav-list',

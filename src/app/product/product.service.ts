@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Products, SubCategory } from '../product.model';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class ProductService{
     
     constructor(){}
-    total$ = new Subject<number>();
+    total$ = new BehaviorSubject<number>(0);
     cart: SubCategory[] = [];
 
     private productList: Products[] = [

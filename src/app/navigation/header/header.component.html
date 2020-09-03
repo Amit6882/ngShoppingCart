@@ -8,7 +8,7 @@
         <a routerLink="/product">Product</a>
       </li>
       <li>
-        <a routerLink="/cart">Cart <span *ngIf="total">-{{total}}</span></a>
+        <a routerLink="/cart">Cart <span *ngIf="total$ | async">-{{total$ | async}}</span></a>
       </li>
     </ul>
   </div>

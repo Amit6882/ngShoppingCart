@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubCategory } from 'src/app/product.model';
 import { ProductService } from 'src/app/product/product.service';
-import Utility from '../../shared/utility';
+import { Utility } from '../../shared/utility';
 
 @Component({
   selector: 'app-cart-product',
