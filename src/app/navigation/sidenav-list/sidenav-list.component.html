@@ -1,0 +1,8 @@
+<mat-nav-list>
+  <a mat-list-item [routerLink] = "['/product', 'all']">
+    <span class="nav-caption">All Category</span>
+  </a>
+  <a *ngFor="let item of productList" mat-list-item [routerLink]="['/product', item.name]">
+    <span class="nav-caption">{{capitalizeFirstLetter(item.name)}}</span>
+  </a>
+</mat-nav-list>

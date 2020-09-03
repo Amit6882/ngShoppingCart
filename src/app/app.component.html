@@ -1,0 +1,12 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened #sidenav role="navigation">
+        <app-sidenav-list [productList] = "productList"></app-sidenav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-header></app-header>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+        <app-footer></app-footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>

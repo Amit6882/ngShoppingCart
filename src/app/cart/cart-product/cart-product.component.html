@@ -1,0 +1,15 @@
+<button *ngIf="products.length" (click)="removeAll()">Remove All</button>
+<div *ngIf="products.length; else continueShopping">
+    <ul *ngFor="let prod of products">
+        <li>{{prod.name}} - Quantity - {{prod.num}}</li>
+        <button (click)="add(prod)">+</button>
+        <button (click)="remove(prod)">-</button>
+    </ul>
+</div>
+
+<ng-template #continueShopping>
+    <div>
+        <h1>No item in your cart!!</h1>
+        <a routerLink="../product">Continue Shopping</a>
+    </div>
+</ng-template>
