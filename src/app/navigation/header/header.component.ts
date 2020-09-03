@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/product/product.service';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor() { }
 
-  ngOnInit() {}
+  total = 0;
+
+  constructor(private productService: ProductService) { }
+
+  ngOnInit() {
+    this.productService.total$.subscribe(total => {
+      console.log(total);
+      this.total = total;
+    })
+  }
 }

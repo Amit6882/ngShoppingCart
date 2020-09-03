@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubCategory } from 'src/app/product.model';
 import { ProductService } from 'src/app/product/product.service';
+import Utility from '../../shared/utility';
 
 @Component({
   selector: 'app-cart-product',
@@ -31,5 +32,15 @@ export class CartProductComponent implements OnInit {
     if(prod.num === 0){
       this.products = this.products.filter(item => item.num > 0);
     }
+  }
+
+  calcTotal() {
+    let total = Utility.totalCartItemsCount(this.products);
+    this.productService.total$.next(total);
+    return total;    
+  }
+
+  calcTotalPrice(){
+    return this.products.reduce((acc, pr) => acc+= pr.price* pr.num , 0).toLocaleString('en-US', {style: 'currency', currency: 'USD'});
   }
 }

@@ -68,6 +68,7 @@ export class ProductListComponent implements OnInit {
 
     if (existing) {
       existing.num += 1;
+      this.calcTotal();
       return;
     }
 
@@ -75,9 +76,18 @@ export class ProductListComponent implements OnInit {
     this.productInCart.push(product);
 
     this.productService.cart = this.productInCart;
+    this.calcTotal();
   }
 
   removeProductToCart(product: SubCategory) {
-    return product.num > 0 ? product.num--: product.num;
+    if(product.num > 0){
+      product.num--;
+      this.calcTotal();
+    }
+  }
+
+  calcTotal() {
+    let total = Utility.totalCartItemsCount(this.productInCart);
+    this.productService.total$.next(total);
   }
 }

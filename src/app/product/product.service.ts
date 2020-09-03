@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Products, SubCategory } from '../product.model';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class ProductService{
     
     constructor(){}
-
+    total$ = new Subject<number>();
     cart: SubCategory[] = [];
 
     private productList: Products[] = [
